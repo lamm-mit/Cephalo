@@ -112,7 +112,7 @@ Please cite as:
 
 ```bibtex
 @article{Buehler_Cephalo_2024,
-    title   = {Cephalo, a series of multi-modal vision-language models for bio-inspired materials and mechanics},
+    title   = {Cephalo: Multi-Modal Vision-Language Models for Bio-Inspired Materials Analysis and Design},
     author  = {M.J. Buehler},
     journal = {},
     year    = {2024},
