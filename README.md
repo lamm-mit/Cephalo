@@ -70,11 +70,15 @@ print(response)
 ```
 ## Overview of Models
 
-### 8b and 4b models
+###  4b models
+
 - [Cephalo-Phi-3-vision-128k-4b-alpha](https://huggingface.co/lamm-mit/Cephalo-Phi-3-vision-128k-4b-alpha)
   - Base version of the Cephalo-Phi-3 model, trained on GPT-4o distilled image-text data from Wikipedia and scientific papers. Good baseline model, but struggles in longer conversations. Context length of 128,000 tokens. 
 - [Cephalo-Phi-3-vision-128k-4b-beta](https://huggingface.co/lamm-mit/Cephalo-Phi-3-vision-128k-4b-beta)
   - Improved version of the Cephalo-Phi-3 model, trained on GPT-4o and Idefics-2 distilled image-text data from Wikipedia and scientific papers, as well as a large text-only corpus. Provides nuanced responses, with excellent reasoning. Context length of 128,000 tokens. 
+
+### 8b models
+
 - [Cephalo-Idefics-2-vision-8b-alpha](https://huggingface.co/lamm-mit/Cephalo-Idefics-2-vision-8b-alpha)
   - Trained on Idefics-2 distilled image-text data from Wikipedia and scientific papers. Gives shorter answers, to the point, and generaly accurate.
 - [Cephalo-Idefics-2-vision-8b-beta](https://huggingface.co/lamm-mit/Cephalo-Idefics-2-vision-8b-beta)
