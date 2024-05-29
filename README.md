@@ -6,6 +6,10 @@ Models are provided at [https://huggingface.co/lamm-mit/cephalo/](https://huggin
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lamm-mit/Cephalo/blob/main/Cephalo%20Inference%20Colab.ipynb)
 
+## Getting Started
+
+Open the Colab notebook above, or follow the instructions at [https://huggingface.co/lamm-mit/cephalo](https://huggingface.co/lamm-mit/cephalo) to get the model running on your local machine.
+
 ## Model Summary
 
 Cephalo is a series of multimodal materials science focused vision large language models (V-LLMs) designed to integrate visual and linguistic data for advanced understanding and interaction in human-AI or multi-agent AI frameworks. 
