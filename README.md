@@ -68,6 +68,10 @@ response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_
 
 print(response) 
 ```
+## Model merging
+
+- Model merging and training  script: [Cephalo%20Model%20Merging%20-%2010b.ipynb](https://github.com/lamm-mit/Cephalo/blob/main/Cephalo%20Model%20Merging%20-%2010b.ipynb)
+
 ## Overview of Models
 
 ###  4b models
