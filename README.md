@@ -16,7 +16,7 @@ Cephalo provides a robust framework for multimodal interaction and understanding
 
 Models are provided at [https://huggingface.co/lamm-mit/cephalo/](https://huggingface.co/lamm-mit/cephalo/). This repository provides additional codes, tools and analysis associated with the models. 
 
-## Getting Started
+## Getting Started: Inference
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lamm-mit/Cephalo/blob/main/Cephalo%20Inference%20Colab.ipynb)
 
@@ -68,7 +68,7 @@ response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_
 
 print(response) 
 ```
-## Model merging
+## Model merging and Training Script
 
 - Model merging and training  script: [Cephalo%20Model%20Merging%20-%2010b.ipynb](https://github.com/lamm-mit/Cephalo/blob/main/Cephalo%20Model%20Merging%20-%2010b.ipynb)
 
