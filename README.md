@@ -1,4 +1,4 @@
-# Cephalo
+# Cephalo: Multi-Modal Vision-Language Models for Bio-Inspired Materials Analysis and Design
 
 Cephalo is a series of multimodal materials science focused vision large language models (V-LLMs) designed to integrate visual and linguistic data for advanced understanding and interaction in human-AI or multi-agent AI frameworks. 
 
