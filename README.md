@@ -4,11 +4,58 @@
 
 Models are provided at [https://huggingface.co/lamm-mit/cephalo/](https://huggingface.co/lamm-mit/cephalo/). This repository provides additional codes, tools and analysis associated with the models. 
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lamm-mit/Cephalo/blob/main/Cephalo%20Inference%20Colab.ipynb)
-
 ## Getting Started
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/lamm-mit/Cephalo/blob/main/Cephalo%20Inference%20Colab.ipynb)
+
 Open the Colab notebook above, or follow the instructions at [https://huggingface.co/lamm-mit/cephalo](https://huggingface.co/lamm-mit/cephalo) to get the model running on your local machine.
+
+A simple example:
+
+
+```python
+from PIL import Image 
+import requests 
+from transformers import AutoModelForCausalLM 
+from transformers import AutoProcessor 
+
+model_id = "lamm-mit/Cephalo-Phi-3-vision-128k-4b-beta" 
+
+model = AutoModelForCausalLM.from_pretrained(model_id, device_map="cuda", trust_remote_code=True, torch_dtype="auto")
+
+processor = AutoProcessor.from_pretrained(model_id, trust_remote_code=True) 
+
+question = "What is shown in this image, and what is the relevance for materials design? Include a discussion of multi-agent AI."
+
+messages = [ 
+    {"role": "user", "content": f"<|image_1|>\n{question}"}, 
+    ] 
+
+url = "https://d2r55xnwy6nx47.cloudfront.net/uploads/2018/02/Ants_Lede1300.jpg" 
+
+image = Image.open(requests.get(url, stream=True).raw) 
+
+prompt = processor.tokenizer.apply_chat_template(messages, tokenize=False, add_generation_prompt=True)
+
+inputs = processor(prompt, [image], return_tensors="pt").to("cuda:0") 
+
+generation_args = { 
+                    "max_new_tokens": 512, 
+                    "temperature": 0.1, 
+                    "do_sample": True, 
+                    "stop_strings": ['<|end|>',
+                                     '<|endoftext|>'],
+                    "tokenizer": processor.tokenizer,
+                  } 
+
+generate_ids = model.generate(**inputs, eos_token_id=processor.tokenizer.eos_token_id, **generation_args) 
+
+# remove input tokens 
+generate_ids = generate_ids[:, inputs['input_ids'].shape[1]:]
+response = processor.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0] 
+
+print(response) 
+```
 
 ## Model Summary
 
