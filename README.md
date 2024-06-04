@@ -106,7 +106,7 @@ print(response)
 
 The image shows a summary of model merging approach, constructing larger models from smaller pre-trained building blocks. a, Fine-tuning the base model. b, Constructing the larger, merged model by combining the whole or parts of smaller models. c, Fine-tuning the integrated hybrid, merged, model.  
 
-### Mixture-of-Expert models
+### Mixture-of-Experts models
 
 - [lamm-mit/Cephalo-Phi-3-MoE-vision-128k-3x4b-beta](https://huggingface.co/lamm-mit/Cephalo-Phi-3-MoE-vision-128k-3x4b-beta)
   - Mixture-of-expert model based on several smaller Cephalo-Phi-3 models.
