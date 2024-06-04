@@ -102,6 +102,15 @@ print(response)
 - [lamm-mit/Cephalo-Idefics-2-vision-12b-alpha](https://huggingface.co/lamm-mit/Cephalo-Idefics-2-vision-12b-alpha)
   - Merged model, 32+16=48 layers, checkpoint after first epoch. Trained on GPT-4o distilled image-text data from Wikipedia and scientific papers (dataset derivived from both Idefics-2 and GPT-4o distillation of the paper corpus).
 
+### Mixture-of-Expert models
+
+- [lamm-mit/Cephalo-Phi-3-MoE-vision-128k-3x4b-beta](https://huggingface.co/lamm-mit/Cephalo-Phi-3-MoE-vision-128k-3x4b-beta)
+  - Mixture-of-expert model based on several smaller Cephalo-Phi-3 models.
+
+![image/png](https://cdn-uploads.huggingface.co/production/uploads/623ce1c6b66fedf374859fe7/3Nfhn3f3FyK7Zgdg9GKJQ.png)
+
+The image shows a summary of model merging approach, constructing larger models from smaller pre-trained building blocks. a, Fine-tuning the base model. b, Constructing the larger, merged model by combining the whole or parts of smaller models. c, Fine-tuning the integrated hybrid, merged, model.  
+
 ### Additional codes and tools
 
 Additional codes and tools are provided at [https://github.com/lamm-mit/Cephalo](https://github.com/lamm-mit/Cephalo).
