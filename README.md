@@ -70,7 +70,7 @@ print(response)
 ```
 ## Model merging and Training Script
 
-- Model merging and training  script: [Cephalo%20Model%20Merging%20-%2010b.ipynb](https://github.com/lamm-mit/Cephalo/blob/main/Cephalo%20Model%20Merging%20-%2010b.ipynb)
+- Model merging and training script: [Cephalo Model Merging 10b.ipynb](https://github.com/lamm-mit/Cephalo/blob/main/Cephalo%20Model%20Merging%20-%2010b.ipynb)
 
 ## Overview of Models
 
@@ -106,7 +106,7 @@ print(response)
 
 The image shows a summary of model merging approach, constructing larger models from smaller pre-trained building blocks. a, Fine-tuning the base model. b, Constructing the larger, merged model by combining the whole or parts of smaller models. c, Fine-tuning the integrated hybrid, merged, model.  
 
-### Mixture-of-Experts models
+### Mixture-of-Experts models (including training and cookbook)
 
 - [lamm-mit/Cephalo-Phi-3-MoE-vision-128k-3x4b-beta](https://huggingface.co/lamm-mit/Cephalo-Phi-3-MoE-vision-128k-3x4b-beta)
   - Mixture-of-expert model based on several smaller Cephalo-Phi-3 models.
@@ -115,6 +115,11 @@ A cookbook on how to create a MoE model from scratch is provided at: [https://hu
 
 ![image/png](https://cdn-uploads.huggingface.co/production/uploads/623ce1c6b66fedf374859fe7/NK9KNOxmnVtn_PzwJtKPR.png)
 
+### Training script 
+
+A training script is provided here: [Cephalo_Fine-Tune.ipynb](https://github.com/lamm-mit/Cephalo/blob/main/Cephalo_Fine-Tune.ipynb). 
+
+![image](https://github.com/user-attachments/assets/7338974e-b374-4ace-8e28-cfb594a309be)
 
 ### Fast inference with mistral.rs
 
