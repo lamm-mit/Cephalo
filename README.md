@@ -111,9 +111,82 @@ The image shows a summary of model merging approach, constructing larger models 
 - [lamm-mit/Cephalo-Phi-3-MoE-vision-128k-3x4b-beta](https://huggingface.co/lamm-mit/Cephalo-Phi-3-MoE-vision-128k-3x4b-beta)
   - Mixture-of-expert model based on several smaller Cephalo-Phi-3 models.
 
+A cookbook on how to create a MoE model from scratch is provided at: [https://huggingface.co/blog/mjbuehler/phi-3-vision-cephalo-moe](https://huggingface.co/blog/mjbuehler/phi-3-vision-cephalo-moe).
 
 ![image/png](https://cdn-uploads.huggingface.co/production/uploads/623ce1c6b66fedf374859fe7/NK9KNOxmnVtn_PzwJtKPR.png)
 
+
+### Fast inference with mistral.rs
+
+Start an OpenAI comptabile server in a terminal:
+```
+./mistralrs_server --port 1234 vision-plain -m lamm-mit/Cephalo-Phi-3-vision-128k-4b-beta -a phi3v
+```
+Then, you can use it as follows:
+```
+import openai
+import httpx
+import textwrap, json
+
+def log_response(response: httpx.Response):
+    request = response.request
+    print(f"Request: {request.method} {request.url}")
+    print("  Headers:")
+    for key, value in request.headers.items():
+        if key.lower() == "authorization":
+            value = "[...]"
+        if key.lower() == "cookie":
+            value = value.split("=")[0] + "=..."
+        print(f"    {key}: {value}")
+    print("  Body:")
+    try:
+        request_body = json.loads(request.content)
+        print(textwrap.indent(json.dumps(request_body, indent=2), "    "))
+    except json.JSONDecodeError:
+        print(textwrap.indent(request.content.decode(), "    "))
+    print(f"Response: status_code={response.status_code}")
+    print("  Headers:")
+    for key, value in response.headers.items():
+        if key.lower() == "set-cookie":
+            value = value.split("=")[0] + "=..."
+        print(f"    {key}: {value}")
+
+
+openai.api_key = "EMPTY"
+openai.base_url = "http://localhost:1234/v1/"
+
+# Enable this to log requests and responses
+# openai.http_client = httpx.Client(
+#     event_hooks={"request": [print], "response": [log_response]}
+# )
+
+completion = openai.chat.completions.create(
+    model="phi3v",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": "https://www.nhmagazine.com/content/uploads/2019/05/mtwashingtonFranconia-2-19-18-108-Edit-Edit.jpg"
+                    },
+                },
+                {
+                    "type": "text",
+                    "text": "<|image_1|>\nWhat is shown in this image? Write a detailed response analyzing the scene.",
+                },
+            ],
+        },
+    ],
+    max_tokens=256,
+    frequency_penalty=1.0,
+    top_p=0.1,
+    temperature=0,
+)
+resp = completion.choices[0].message.content
+print(resp)
+```
 
 ### Additional codes and tools
 
