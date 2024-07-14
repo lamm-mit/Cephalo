@@ -187,6 +187,7 @@ completion = openai.chat.completions.create(
 resp = completion.choices[0].message.content
 print(resp)
 ```
+More details on mistral.rs (including more sample scripts), see: https://github.com/EricLBuehler/mistral.rs
 
 ### Additional codes and tools
 
@@ -200,10 +201,10 @@ Please cite as:
 @article{Buehler_Cephalo_2024,
     title   = {Cephalo: Multi-Modal Vision-Language Models for Bio-Inspired Materials Analysis and Design},
     author  = {M.J. Buehler},
-    journal = {},
+    journal = {arXiv},
     year    = {2024},
     volume  = {},
     pages   = {},
-    url     = {}
+    url     = {https://arxiv.org/abs/2405.19076}
 }
 ```
