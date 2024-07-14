@@ -169,12 +169,12 @@ completion = openai.chat.completions.create(
                 {
                     "type": "image_url",
                     "image_url": {
-                        "url": "https://www.nhmagazine.com/content/uploads/2019/05/mtwashingtonFranconia-2-19-18-108-Edit-Edit.jpg"
+                        "url": "https://d2r55xnwy6nx47.cloudfront.net/uploads/2018/02/Ants_Lede1300.jpg"
                     },
                 },
                 {
                     "type": "text",
-                    "text": "<|image_1|>\nWhat is shown in this image? Write a detailed response analyzing the scene.",
+                    "text": "<|image_1|>\nWhat is shown in this image, and what is the relevance for materials design? Include a discussion of multi-agent AI.",
                 },
             ],
         },
@@ -182,7 +182,7 @@ completion = openai.chat.completions.create(
     max_tokens=256,
     frequency_penalty=1.0,
     top_p=0.1,
-    temperature=0,
+    temperature=0.3,
 )
 resp = completion.choices[0].message.content
 print(resp)
