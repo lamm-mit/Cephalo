@@ -108,10 +108,14 @@ The image shows a summary of model merging approach, constructing larger models 
 
 ### Mixture-of-Experts models (including training and cookbook)
 
+Codes and training examples are provided for both the Phi-3-Vision and Idefics2 based Cephalo models (with base model size of 4b and 8b parameters, respectively). 
+
 - [lamm-mit/Cephalo-Phi-3-MoE-vision-128k-3x4b-beta](https://huggingface.co/lamm-mit/Cephalo-Phi-3-MoE-vision-128k-3x4b-beta)
   - Mixture-of-expert model based on several smaller Cephalo-Phi-3 models.
+- [lamm-mit/Cephalo-Idefics2-MoE]([https://github.com/lamm-mit/Cephalo-Idefics2-MoE](https://huggingface.co/lamm-mit/Cephalo-Idefics2-vision-3x8b-beta))
+  - Mixture-of-expert model based on several smaller Cephalo-Idefics2 models.
 
-A cookbook on how to create a MoE model from scratch is provided at: [https://huggingface.co/blog/mjbuehler/phi-3-vision-cephalo-moe](https://huggingface.co/blog/mjbuehler/phi-3-vision-cephalo-moe).
+An easy to follow, annotated cookbook on how to create a MoE model from scratch is provided at: [https://huggingface.co/blog/mjbuehler/phi-3-vision-cephalo-moe](https://huggingface.co/blog/mjbuehler/phi-3-vision-cephalo-moe).
 
 ![image/png](https://cdn-uploads.huggingface.co/production/uploads/623ce1c6b66fedf374859fe7/NK9KNOxmnVtn_PzwJtKPR.png)
 
